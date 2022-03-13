@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500&display=swap");
 body {
+  overflow-x: auto;
+  scrollbar-gutter: auto;
   background: #030426;
   margin: 0;
   font-family: 'JetBrains Mono', monospace;
@@ -140,5 +142,22 @@ a {
 
 .plate {
   height: 1000px;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 100vw;
+  margin-top: 5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  border-radius: 100vw;
+  border: 0.25em solid white;
 }
 /*# sourceMappingURL=main.css.map */
