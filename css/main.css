@@ -121,8 +121,8 @@ a {
 .hero .container .hero-r img {
   max-width: 2.5em;
   margin-left: 1em;
-  -webkit-animation: arrowAnim 2s ease-in-out 0s infinite alternate;
-          animation: arrowAnim 2s ease-in-out 0s infinite alternate;
+  -webkit-animation: arrowAnim 1s ease-in 0s infinite alternate;
+          animation: arrowAnim 1s ease-in 0s infinite alternate;
 }
 
 @-webkit-keyframes arrowAnim {
