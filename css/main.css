@@ -20,9 +20,10 @@ a {
 
 .header .logo {
   size: 1.5em;
+  height: 2em;
   position: absolute;
-  top: 1em;
-  left: 2em;
+  top: 2em;
+  left: 4em;
   color: #FF6B00;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
@@ -35,33 +36,28 @@ a {
 }
 
 .header .logo :hover {
-  color: #FF6B00;
-  -webkit-transform: translate(0px, -2.5px);
-          transform: translate(0px, -2.5px);
-}
-
-.header .logo :hover span {
   color: white;
 }
 
-.header .logo :hover span span {
+.header .logo :hover span {
   color: #4AD12C;
   text-decoration: underline;
 }
 
 .header .menu {
   position: fixed;
-  top: 1em;
-  right: 1em;
   border: 0;
   background-color: #ff6a0057;
-  width: 50px;
-  height: 50px;
-  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   justify-items: center;
+  top: 1em;
+  right: 1em;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  padding: 0;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
@@ -70,11 +66,6 @@ a {
 
 .header .menu img {
   margin: auto;
-}
-
-.header .menu:hover {
-  -webkit-transform: translate(0px, -2.5px);
-          transform: translate(0px, -2.5px);
 }
 
 .hero {
@@ -121,14 +112,14 @@ a {
 .hero .container .hero-r img {
   max-width: 2.5em;
   margin-left: 1em;
-  -webkit-animation: arrowAnim 1s ease-in 0s infinite alternate;
-          animation: arrowAnim 1s ease-in 0s infinite alternate;
+  -webkit-animation: arrowAnim 0.5s ease-in 0s infinite alternate;
+          animation: arrowAnim 0.5s ease-in 0s infinite alternate;
 }
 
 @-webkit-keyframes arrowAnim {
   0% {
-    -webkit-transform: translateY(-0.5em);
-            transform: translateY(-0.5em);
+    -webkit-transform: translateY(-0.75em);
+            transform: translateY(-0.75em);
   }
   100% {
     -webkit-transform: translateY(0em);
@@ -138,8 +129,8 @@ a {
 
 @keyframes arrowAnim {
   0% {
-    -webkit-transform: translateY(-0.5em);
-            transform: translateY(-0.5em);
+    -webkit-transform: translateY(-0.75em);
+            transform: translateY(-0.75em);
   }
   100% {
     -webkit-transform: translateY(0em);

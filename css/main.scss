@@ -17,9 +17,10 @@ a{
     background: black;
     .logo{
         size: 1.5em;
+        height: 2em;
         position: absolute;
-        top: 1em;
-        left: 2em;
+        top: 2em;
+        left: 4em;
         color: #FF6B00;
         transition: transform 0.3s ease;
         span{
@@ -27,35 +28,37 @@ a{
         }
     }
     .logo :hover {
-        color: #FF6B00;
-        transform: translate(0px,-2.5px);
-        span{
+        // color: #FF6B00;
+        // transform: translate(0px,-2.5px);
+        // span{
             color: white;
             span{
                 color: #4AD12C;
                 text-decoration: underline;
             }
-        }
+        // }
     }
     .menu{
         position: fixed;
+        border: 0;
+        background-color: #ff6a0057;
+        display: flex;
+        justify-items: center;
         top: 1em;
         right: 1em;
         border: 0;
-        background-color: #ff6a0057;
         width: 50px;
         height: 50px;
         padding: 0;
-        display: flex;
-        justify-items: center;
         transition: transform 0.3s ease;
         img{
             margin: auto;
         }
+        
     }
-    .menu:hover{
-        transform: translate(0px,-2.5px);
-    }
+    // .menu:hover{
+    //     transform: translate(0px,-2.5px);
+    // }
 }
 
 .hero{
@@ -87,7 +90,7 @@ a{
             img{
                 max-width: 2.5em;
                 margin-left: 1em;
-                animation: arrowAnim 1s ease-in 0s infinite alternate;
+                animation: arrowAnim 0.5s ease-in 0s infinite alternate;
             }
         }
     }
@@ -95,7 +98,7 @@ a{
 
 @keyframes arrowAnim {
     0%{
-        transform: translateY(-0.5em);
+        transform: translateY(-0.75em);
     }
     100%{
         transform: translateY(0em);
