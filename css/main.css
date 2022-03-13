@@ -131,8 +131,8 @@ a {
             transform: translateY(-0.5em);
   }
   100% {
-    -webkit-transform: translateY(0.5em);
-            transform: translateY(0.5em);
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
   }
 }
 
@@ -142,8 +142,8 @@ a {
             transform: translateY(-0.5em);
   }
   100% {
-    -webkit-transform: translateY(0.5em);
-            transform: translateY(0.5em);
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
   }
 }
 
