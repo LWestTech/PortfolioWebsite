@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500&display=swap');
+
+body{
+    background: #030426;
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header{
+    align-items: center;
+    height: 5.25em;
+    background: black;
+    .logo{
+        size: 1.5em;
+        position: absolute;
+        top: 1em;
+        left: 2em;
+        color: #FF6B00;
+        transition: transform 0.3s ease;
+        span{
+            color: white;
+        }
+    }
+    .logo :hover {
+        color: #FF6B00;
+        transform: translate(0px,-2.5px);
+        span{
+            color: white;
+            span{
+                color: #4AD12C;
+                text-decoration: underline;
+            }
+        }
+    }
+    .menu{
+        position: fixed;
+        top: 1em;
+        right: 1em;
+        border: 0;
+        background-color: #ff6a0057;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        display: flex;
+        justify-items: center;
+        transition: transform 0.3s ease;
+        img{
+            margin: auto;
+        }
+    }
+    .menu:hover{
+        transform: translate(0px,-2.5px);
+    }
+}
+
+.hero{
+    height: calc(100vh - 5.25em);
+    background: linear-gradient(180deg, #000000 0%, #030426 73.41%);
+    .container{
+        height: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        .hero-text-r{
+            span{
+                color:#FF6B00;
+            }
+        }
+        .hero-l{
+            font-size: 3em;
+            max-width: 530px;
+        }
+        .hero-r{
+            margin-top: auto;
+            margin-bottom: 3.5em;
+            display: flex;
+            justify-content: right;
+            font-size: 0.8em;
+            img{
+                max-width: 2.5em;
+                margin-left: 1em;
+                animation: arrowAnim 2s ease-in-out 0s infinite alternate;
+            }
+        }
+    }
+}
+
+@keyframes arrowAnim {
+    0%{
+        transform: translateY(-0.5em);
+    }
+    100%{
+        transform: translateY(0.5em);
+    }
+}
+
+.plate{
+    height: 1000px;
+}
+
+// @media (min-width:960px) {
+//     body{
+//         color: #4AD12C;
+//     }
+// }
+
