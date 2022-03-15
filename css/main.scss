@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500&display=swap');
 
 body{
-    overflow-x: auto;
-    scrollbar-gutter: auto;
     background: #030426;
     margin: 0;
     font-family: 'JetBrains Mono', monospace;
@@ -13,16 +11,26 @@ a{
     text-decoration: none;
 }
 
+.caret{
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    top: 91px;
+    left: 15px;
+    background: white;
+    animation: caretAnim 0.5s none 0s infinite alternate
+}
+
 .header{
     align-items: center;
     height: 5.25em;
     background: black;
     .logo{
         size: 1.5em;
-        height: 2em;
+        padding: 1.5em;
         position: absolute;
-        top: 2em;
-        left: 4em;
+        top: 0.5em;
+        left: 1.5em;
         color: #FF6B00;
         transition: transform 0.3s ease;
         span{
@@ -40,27 +48,32 @@ a{
             }
         // }
     }
-    .menu{
+    .menucontainer{
         position: fixed;
-        border: 0;
-        background-color: #ff6a0057;
-        display: flex;
-        justify-items: center;
-        top: 1em;
-        right: 1em;
-        border: 0;
-        width: 50px;
-        height: 50px;
-        padding: 0;
+        top: 0em;
+        right: 0em;
+        padding: 1.5em;
         transition: transform 0.3s ease;
-        img{
-            margin: auto;
+        .menu{
+            border: 0;
+            background-color: #ff6a0057;
+            display: flex;
+            justify-items: center;
+            border: 0;
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            transition: border-radius 0.3s;
+            img{
+                margin: auto;
+            }
+            
         }
-        
     }
-    // .menu:hover{
-    //     transform: translate(0px,-2.5px);
-    // }
+    .menucontainer:hover{
+        transform: scale(20);
+        .menu{border-radius: 50px;}
+    }
 }
 
 .hero{
@@ -74,16 +87,16 @@ a{
         padding: 1em;
         display: flex;
         justify-content: space-between;
-        .hero-text-r{
+        .heroTextR{
             span{
                 color:#FF6B00;
             }
         }
-        .hero-l{
+        .heroL{
             font-size: 3em;
             max-width: 530px;
         }
-        .hero-r{
+        .heroR{
             margin-top: auto;
             margin-bottom: 3.5em;
             display: flex;
@@ -98,6 +111,40 @@ a{
     }
 }
 
+.console{
+    height: 100vh;
+    width: auto;
+    display: flex;
+    opacity: 0;
+    transform: translatey(50px);
+    transition: all 1s ease-out;
+    .container{
+        background: black;
+        width:1200px;
+        height:700px;
+        margin:auto;
+        .header{
+            width: 100%;
+            height: auto;
+        }
+        .textStart{
+            font-size:18px;
+            font-weight: lighter;
+            margin: 15px;
+            opacity: 0;
+            transition: opacity 0s ease 3s;
+        }
+    }
+}
+
+.console.fadeIn{
+    opacity: 100;
+    transform: translateY(0);
+    .container{.textStart{
+        opacity: 100;
+    }}
+}
+
 @keyframes arrowAnim {
     0%{
         transform: translateY(-0.75em);
@@ -106,32 +153,11 @@ a{
         transform: translateY(0em);
     }
 }
-
-.plate{
-    height: 1000px;
+@keyframes caretAnim {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
 }
-
-::-webkit-scrollbar {
-    width: 1em;
-    border-radius: 100vw;
-}
-
-::-webkit-scrollbar-track {
-    background:white;
-    border-radius: 100vw;
-    margin-top: 5em;
-}
-
-::-webkit-scrollbar-thumb {
-    background:#FF6B00;
-    border-radius: 100vw;
-    border: 0.25em solid white;
-}
-
-
-// @media (min-width:960px) {
-//     body{
-//         color: #4AD12C;
-//     }
-// }
-

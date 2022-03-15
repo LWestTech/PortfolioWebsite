@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500&display=swap");
 body {
-  overflow-x: auto;
-  scrollbar-gutter: auto;
   background: #030426;
   margin: 0;
   font-family: 'JetBrains Mono', monospace;
@@ -10,6 +8,17 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.caret {
+  width: 10px;
+  height: 20px;
+  position: absolute;
+  top: 91px;
+  left: 15px;
+  background: white;
+  -webkit-animation: caretAnim 0.5s none 0s infinite alternate;
+          animation: caretAnim 0.5s none 0s infinite alternate;
 }
 
 .header {
@@ -22,10 +31,10 @@ a {
 
 .header .logo {
   size: 1.5em;
-  height: 2em;
+  padding: 1.5em;
   position: absolute;
-  top: 2em;
-  left: 4em;
+  top: 0.5em;
+  left: 1.5em;
   color: #FF6B00;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
@@ -46,28 +55,43 @@ a {
   text-decoration: underline;
 }
 
-.header .menu {
+.header .menucontainer {
   position: fixed;
-  border: 0;
-  background-color: #ff6a0057;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-items: center;
-  top: 1em;
-  right: 1em;
-  border: 0;
-  width: 50px;
-  height: 50px;
-  padding: 0;
+  top: 0em;
+  right: 0em;
+  padding: 1.5em;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
-.header .menu img {
+.header .menucontainer .menu {
+  border: 0;
+  background-color: #ff6a0057;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  -webkit-transition: border-radius 0.3s;
+  transition: border-radius 0.3s;
+}
+
+.header .menucontainer .menu img {
   margin: auto;
+}
+
+.header .menucontainer:hover {
+  -webkit-transform: scale(20);
+          transform: scale(20);
+}
+
+.header .menucontainer:hover .menu {
+  border-radius: 50px;
 }
 
 .hero {
@@ -90,16 +114,16 @@ a {
           justify-content: space-between;
 }
 
-.hero .container .hero-text-r span {
+.hero .container .heroTextR span {
   color: #FF6B00;
 }
 
-.hero .container .hero-l {
+.hero .container .heroL {
   font-size: 3em;
   max-width: 530px;
 }
 
-.hero .container .hero-r {
+.hero .container .heroR {
   margin-top: auto;
   margin-bottom: 3.5em;
   display: -webkit-box;
@@ -111,11 +135,55 @@ a {
   font-size: 0.8em;
 }
 
-.hero .container .hero-r img {
+.hero .container .heroR img {
   max-width: 2.5em;
   margin-left: 1em;
   -webkit-animation: arrowAnim 0.5s ease-in 0s infinite alternate;
           animation: arrowAnim 0.5s ease-in 0s infinite alternate;
+}
+
+.console {
+  height: 100vh;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  -webkit-transform: translatey(50px);
+          transform: translatey(50px);
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.console .container {
+  background: black;
+  width: 1200px;
+  height: 700px;
+  margin: auto;
+}
+
+.console .container .header {
+  width: 100%;
+  height: auto;
+}
+
+.console .container .textStart {
+  font-size: 18px;
+  font-weight: lighter;
+  margin: 15px;
+  opacity: 0;
+  -webkit-transition: opacity 0s ease 3s;
+  transition: opacity 0s ease 3s;
+}
+
+.console.fadeIn {
+  opacity: 100;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.console.fadeIn .container .textStart {
+  opacity: 100;
 }
 
 @-webkit-keyframes arrowAnim {
@@ -140,24 +208,21 @@ a {
   }
 }
 
-.plate {
-  height: 1000px;
+@-webkit-keyframes caretAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }
 
-::-webkit-scrollbar {
-  width: 1em;
-  border-radius: 100vw;
-}
-
-::-webkit-scrollbar-track {
-  background: white;
-  border-radius: 100vw;
-  margin-top: 5em;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #FF6B00;
-  border-radius: 100vw;
-  border: 0.25em solid white;
+@keyframes caretAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }
 /*# sourceMappingURL=main.css.map */
