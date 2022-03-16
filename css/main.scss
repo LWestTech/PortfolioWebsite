@@ -14,8 +14,8 @@ a{
 .caret{
     width: 10px;
     height: 20px;
-    position: absolute;
-    top: 91px;
+    position: relative;
+    top: 36px;
     left: 15px;
     background: white;
     animation: caretAnim 0.5s none 0s infinite alternate
@@ -74,6 +74,9 @@ a{
         transform: scale(20);
         .menu{border-radius: 50px;}
     }
+    .menucontainer.hidden{
+        transform: translatex(200px);
+    }
 }
 
 .hero{
@@ -102,10 +105,23 @@ a{
             display: flex;
             justify-content: right;
             font-size: 0.8em;
+            h2{
+                opacity: 100;
+                transition: opacity 2s;
+            }
             img{
                 max-width: 2.5em;
                 margin-left: 1em;
                 animation: arrowAnim 0.5s ease-in 0s infinite alternate;
+                transition: translate 2s;
+            }
+        }
+        .heroR.hidden{
+            h2{
+                opacity: 0;
+            }
+            img{
+                transform: translateX(200px);
             }
         }
     }
@@ -131,8 +147,6 @@ a{
             font-size:18px;
             font-weight: lighter;
             margin: 15px;
-            opacity: 0;
-            transition: opacity 0s ease 3s;
         }
     }
 }
@@ -140,9 +154,13 @@ a{
 .console.fadeIn{
     opacity: 100;
     transform: translateY(0);
-    .container{.textStart{
-        opacity: 100;
-    }}
+}
+.consoleTrigger{
+    min-height: 1px;
+}
+
+.spacer{
+    min-height: 400px;
 }
 
 @keyframes arrowAnim {

@@ -19,21 +19,40 @@ magneticButtonsBox.forEach(magneticButtonsBox => {
     })
 })
 
+
 const controller = new ScrollMagic.Controller();
 
 const consoleReveal = new ScrollMagic.Scene({
     triggerElement: '.console',
 })
-.setClassToggle('.console', 'fadeIn')
+.on('enter leave', function () {
+$('.console').toggleClass('fadeIn');
+$('.menucontainer').toggleClass('hidden');
+$('.heroR').toggleClass('hidden');
+})
+
+.setClassToggle('.menucontainer', 'hidden')
 // .addIndicators()
 .addTo(controller);
 
-// const textScene = new ScrollMagic.Scene({
-//     triggerElement: '.console',
-//     duration: 300,
-//     triggerHook: 0
-// })
-// .addIndicators()
-// .setPin('.console')
-// .addTo(controller);
+const consolePart2 = new ScrollMagic.Scene({
+    triggerElement: '.console',
+    duration: 500,
+    triggerHook: 0
+})
+.setPin('.console')
+.on("enter leave", function (e) {
+    if(e.type != "enter") {
+        document.getElementById("consoleText").innerHTML = " ";
+    }
+})
+.on('progress', function (prg) {
+    if(prg.progress < 0.5) {
+        document.getElementById("consoleText").innerHTML = "Lucas West<br>Student (HS) Developer. Full Stack.<br><br>C:\\Users\\LWest>";
 
+    } else if(prg.progress > 0.5) {
+        document.getElementById("consoleText").innerHTML = "Lucas West<br>Student (HS) Developer. Full Stack.<br><br>C:\\Users\\LWest> about -me<br>Name: Lucas West<br>Full time occupation: Student<br>Student type: Highschool<br>-> phase: 2<br>Initiating careerpath...";
+    }
+    })
+// .addIndicators()
+.addTo(controller);

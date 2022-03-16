@@ -13,8 +13,8 @@ a {
 .caret {
   width: 10px;
   height: 20px;
-  position: absolute;
-  top: 91px;
+  position: relative;
+  top: 36px;
   left: 15px;
   background: white;
   -webkit-animation: caretAnim 0.5s none 0s infinite alternate;
@@ -94,6 +94,11 @@ a {
   border-radius: 50px;
 }
 
+.header .menucontainer.hidden {
+  -webkit-transform: translatex(200px);
+          transform: translatex(200px);
+}
+
 .hero {
   height: calc(100vh - 5.25em);
   background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(73.41%, #030426));
@@ -135,11 +140,28 @@ a {
   font-size: 0.8em;
 }
 
+.hero .container .heroR h2 {
+  opacity: 100;
+  -webkit-transition: opacity 2s;
+  transition: opacity 2s;
+}
+
 .hero .container .heroR img {
   max-width: 2.5em;
   margin-left: 1em;
   -webkit-animation: arrowAnim 0.5s ease-in 0s infinite alternate;
           animation: arrowAnim 0.5s ease-in 0s infinite alternate;
+  -webkit-transition: translate 2s;
+  transition: translate 2s;
+}
+
+.hero .container .heroR.hidden h2 {
+  opacity: 0;
+}
+
+.hero .container .heroR.hidden img {
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
 }
 
 .console {
@@ -171,9 +193,6 @@ a {
   font-size: 18px;
   font-weight: lighter;
   margin: 15px;
-  opacity: 0;
-  -webkit-transition: opacity 0s ease 3s;
-  transition: opacity 0s ease 3s;
 }
 
 .console.fadeIn {
@@ -182,8 +201,12 @@ a {
           transform: translateY(0);
 }
 
-.console.fadeIn .container .textStart {
-  opacity: 100;
+.consoleTrigger {
+  min-height: 1px;
+}
+
+.spacer {
+  min-height: 400px;
 }
 
 @-webkit-keyframes arrowAnim {
