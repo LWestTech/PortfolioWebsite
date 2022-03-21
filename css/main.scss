@@ -18,7 +18,9 @@ a{
     top: 36px;
     left: 15px;
     background: white;
-    animation: caretAnim 0.5s none 0s infinite alternate
+}
+.caretEnabled{
+    animation: caretAnim 0.5s none 0s infinite alternate;
 }
 
 .header{
@@ -147,6 +149,12 @@ a{
             font-size:18px;
             font-weight: lighter;
             margin: 15px;
+            .red{
+                color:red;
+            }
+            .blue{
+                color: #5338F6;
+            }
         }
     }
 }

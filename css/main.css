@@ -17,6 +17,9 @@ a {
   top: 36px;
   left: 15px;
   background: white;
+}
+
+.caretEnabled {
   -webkit-animation: caretAnim 0.5s none 0s infinite alternate;
           animation: caretAnim 0.5s none 0s infinite alternate;
 }
@@ -193,6 +196,14 @@ a {
   font-size: 18px;
   font-weight: lighter;
   margin: 15px;
+}
+
+.console .container .textStart .red {
+  color: red;
+}
+
+.console .container .textStart .blue {
+  color: #5338F6;
 }
 
 .console.fadeIn {
