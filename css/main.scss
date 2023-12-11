@@ -11,6 +11,68 @@ a{
     text-decoration: none;
 }
 
+aside{
+    position: fixed;
+    top:0;
+    right:0;
+    height: 100vh;
+    width: auto;
+    padding-right: 1em;
+    background: black;
+    z-index: 100;
+    display: flex;
+    transform: translateX(300px);
+    transition: transform 0.75s;
+    ul{
+        margin-block: auto;
+        justify-items: space-between;
+        list-style: none;
+        margin-left: 0;
+        margin-right: 2em;
+        li{
+            margin-block: 1em;
+            transform: translateY(0);
+            transition: transform 0.5s ease;
+            a{
+                // transition: background-position-x 0.5s ease;
+                background: linear-gradient(90deg, white 0%, white 48.23%, rgba(196, 196, 196, 0) 48.24%, rgba(196, 196, 196, 0) 100%);
+                transition: background-position-x 0.75s ease;
+                background-position: 100%;
+                background-size: 400% 400%;
+                padding-inline: 0.5em;
+                padding-block: 0.25em;
+                // transition: color 0.5s;
+            }
+            a.cta{
+                // transition: background-position-x 0.5s ease;
+                background: linear-gradient(90deg, white 0%, white 48.23%, #ff6a00 48.24%, #FF6B00 100%);
+                transition: background-position-x 0.75s ease;
+                background-position: 100%;
+                background-size: 400% 400%;
+                padding-inline: 0.5em;
+                padding-block: 0.25em;
+            }
+        }
+        li:hover{
+            a{
+                transform: translate(2px,-4px);
+                background-position: 0%;
+                color: #5338F6;
+            }
+        }
+    }
+    a{
+        color: white;
+    }
+    a:hover{
+        color:#5338F6;
+    }
+}
+
+aside.menuShown{
+    transform: translateX(0px);
+}
+
 .caret{
     width: 10px;
     height: 20px;
@@ -20,7 +82,7 @@ a{
     background: white;
 }
 .caretEnabled{
-    animation: caretAnim 0.5s none 0s infinite alternate;
+    animation: blinkAnim 0.5s none 0s infinite alternate;
 }
 
 .header{
@@ -56,6 +118,7 @@ a{
         right: 0em;
         padding: 1.5em;
         transition: transform 0.3s ease;
+        z-index: 200;
         .menu{
             border: 0;
             background-color: #ff6a0057;
@@ -66,8 +129,35 @@ a{
             height: 50px;
             padding: 0;
             transition: border-radius 0.3s;
-            img{
+            img.top{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
                 margin: auto;
+                transform: rotate(0deg);
+                opacity: 100;
+                transition: transform 1s,opacity 1s;
+            }
+            img.bottom{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                transform: rotate(0deg);
+                opacity: 0;
+                transition: transform 1s,opacity 1s;
+            }
+            img.top.menuShown{
+                opacity: 0;
+                transform: rotate(360deg);
+            }
+            img.bottom.menuShown{
+                opacity: 100;
+                transform: rotate(360deg);
             }
             
         }
@@ -137,23 +227,56 @@ a{
     transform: translatey(50px);
     transition: all 1s ease-out;
     .container{
-        background: black;
-        width:1200px;
-        height:700px;
-        margin:auto;
-        .header{
-            width: 100%;
-            height: auto;
-        }
-        .textStart{
-            font-size:18px;
-            font-weight: lighter;
-            margin: 15px;
-            .red{
-                color:red;
+        height: 100%;
+        width: 100%;
+        margin: none;
+        padding: none;
+        display: block;
+        padding-top: calc((100vh - 700px) / 2);
+        .consoleStartContainer{
+            background: black;
+            display: block;
+            width:1200px;
+            height:700px;
+            margin:auto;
+            .header{
+                width: 100%;
+                height: auto;
             }
-            .blue{
-                color: #5338F6;
+            .textStart{
+                font-size:18px;
+                font-weight: lighter;
+                margin: 15px;
+                .red{
+                    color:red;
+                }
+                .blue{
+                    color: #5338F6;
+                }
+            }
+        }
+        .consoleEndContainer{
+            display: flex-block;
+            width: 1200px;
+            height: 700;
+            margin: auto;
+            .topContainer{
+                top: 10px;
+                #textEndOn{
+                    object-fit: fill;
+                }
+                #textEndOff{
+                    object-fit: fill;
+                }
+            }
+            .bottomContainer{
+                width: 1200px;
+                height: 30px;
+                .background{
+                    width: 100%;
+                    height: 100%;
+                    background-color: #C4C4C4;
+                }
             }
         }
     }
@@ -179,7 +302,8 @@ a{
         transform: translateY(0em);
     }
 }
-@keyframes caretAnim {
+
+@keyframes blinkAnim {
     0%{
         opacity: 0;
     }

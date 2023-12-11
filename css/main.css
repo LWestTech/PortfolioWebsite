@@ -10,6 +10,86 @@ a {
   text-decoration: none;
 }
 
+aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: auto;
+  padding-right: 1em;
+  background: black;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translateX(300px);
+          transform: translateX(300px);
+  -webkit-transition: -webkit-transform 0.75s;
+  transition: -webkit-transform 0.75s;
+  transition: transform 0.75s;
+  transition: transform 0.75s, -webkit-transform 0.75s;
+}
+
+aside ul {
+  margin-block: auto;
+  justify-items: space-between;
+  list-style: none;
+  margin-left: 0;
+  margin-right: 2em;
+}
+
+aside ul li {
+  margin-block: 1em;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+aside ul li a {
+  background: -webkit-gradient(linear, left top, right top, from(white), color-stop(48.23%, white), color-stop(48.24%, rgba(196, 196, 196, 0)), to(rgba(196, 196, 196, 0)));
+  background: linear-gradient(90deg, white 0%, white 48.23%, rgba(196, 196, 196, 0) 48.24%, rgba(196, 196, 196, 0) 100%);
+  -webkit-transition: background-position-x 0.75s ease;
+  transition: background-position-x 0.75s ease;
+  background-position: 100%;
+  background-size: 400% 400%;
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+}
+
+aside ul li a.cta {
+  background: -webkit-gradient(linear, left top, right top, from(white), color-stop(48.23%, white), color-stop(48.24%, #ff6a00), to(#FF6B00));
+  background: linear-gradient(90deg, white 0%, white 48.23%, #ff6a00 48.24%, #FF6B00 100%);
+  -webkit-transition: background-position-x 0.75s ease;
+  transition: background-position-x 0.75s ease;
+  background-position: 100%;
+  background-size: 400% 400%;
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+}
+
+aside ul li:hover a {
+  -webkit-transform: translate(2px, -4px);
+          transform: translate(2px, -4px);
+  background-position: 0%;
+  color: #5338F6;
+}
+
+aside a {
+  color: white;
+}
+
+aside a:hover {
+  color: #5338F6;
+}
+
+aside.menuShown {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
 .caret {
   width: 10px;
   height: 20px;
@@ -20,8 +100,8 @@ a {
 }
 
 .caretEnabled {
-  -webkit-animation: caretAnim 0.5s none 0s infinite alternate;
-          animation: caretAnim 0.5s none 0s infinite alternate;
+  -webkit-animation: blinkAnim 0.5s none 0s infinite alternate;
+          animation: blinkAnim 0.5s none 0s infinite alternate;
 }
 
 .header {
@@ -67,6 +147,7 @@ a {
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  z-index: 200;
 }
 
 .header .menucontainer .menu {
@@ -84,8 +165,48 @@ a {
   transition: border-radius 0.3s;
 }
 
-.header .menucontainer .menu img {
+.header .menucontainer .menu img.top {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  opacity: 100;
+  -webkit-transition: opacity 1s,-webkit-transform 1s;
+  transition: opacity 1s,-webkit-transform 1s;
+  transition: transform 1s,opacity 1s;
+  transition: transform 1s,opacity 1s,-webkit-transform 1s;
+}
+
+.header .menucontainer .menu img.bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  opacity: 0;
+  -webkit-transition: opacity 1s,-webkit-transform 1s;
+  transition: opacity 1s,-webkit-transform 1s;
+  transition: transform 1s,opacity 1s;
+  transition: transform 1s,opacity 1s,-webkit-transform 1s;
+}
+
+.header .menucontainer .menu img.top.menuShown {
+  opacity: 0;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.header .menucontainer .menu img.bottom.menuShown {
+  opacity: 100;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
 }
 
 .header .menucontainer:hover {
@@ -181,29 +302,71 @@ a {
 }
 
 .console .container {
+  height: 100%;
+  width: 100%;
+  margin: none;
+  padding: none;
+  display: block;
+  padding-top: calc((100vh - 700px) / 2);
+}
+
+.console .container .consoleStartContainer {
   background: black;
+  display: block;
   width: 1200px;
   height: 700px;
   margin: auto;
 }
 
-.console .container .header {
+.console .container .consoleStartContainer .header {
   width: 100%;
   height: auto;
 }
 
-.console .container .textStart {
+.console .container .consoleStartContainer .textStart {
   font-size: 18px;
   font-weight: lighter;
   margin: 15px;
 }
 
-.console .container .textStart .red {
+.console .container .consoleStartContainer .textStart .red {
   color: red;
 }
 
-.console .container .textStart .blue {
+.console .container .consoleStartContainer .textStart .blue {
   color: #5338F6;
+}
+
+.console .container .consoleEndContainer {
+  display: flex-block;
+  width: 1200px;
+  height: 700;
+  margin: auto;
+}
+
+.console .container .consoleEndContainer .topContainer {
+  top: 10px;
+}
+
+.console .container .consoleEndContainer .topContainer #textEndOn {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.console .container .consoleEndContainer .topContainer #textEndOff {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.console .container .consoleEndContainer .bottomContainer {
+  width: 1200px;
+  height: 30px;
+}
+
+.console .container .consoleEndContainer .bottomContainer .background {
+  width: 100%;
+  height: 100%;
+  background-color: #C4C4C4;
 }
 
 .console.fadeIn {
@@ -242,7 +405,7 @@ a {
   }
 }
 
-@-webkit-keyframes caretAnim {
+@-webkit-keyframes blinkAnim {
   0% {
     opacity: 0;
   }
@@ -251,7 +414,7 @@ a {
   }
 }
 
-@keyframes caretAnim {
+@keyframes blinkAnim {
   0% {
     opacity: 0;
   }

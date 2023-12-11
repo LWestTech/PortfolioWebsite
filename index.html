@@ -17,10 +17,19 @@
     <header class="header">
         <a class="logo magnetic" href="index.html">String<span>(<span>"LucasWest"</span>);</span></a>
         <div class="menucontainer magnetic">
-            <button class="menu">
-                <img src="assets/hamburger.svg" alt="no">
+            <button onclick="openMenu()"class="menu">
+                <img class="top menuImage" src="assets/hamburger.svg" alt="no">
+                <img class="bottom menuImage" src="assets/close.svg" alt="no">
             </button>
         </div>
+        <aside id="flyout">
+            <ul>
+                <li class="magnetic"><a href="">.about</a></li>
+                <li class="magnetic"><a href="">.projects</a></li>
+                <li class="magnetic"><a href="">.life plans</a></li>
+                <li class="magnetic"><a class="cta" href="">.contact and resume</a></li>
+            </ul>
+        </aside>
     </header>
     <section class="hero">
         <div class="container">
@@ -35,10 +44,23 @@
     </section>
     <section class="console">
         <div class="container">
-            <img src="assets/terminalHeader.svg" alt="terminal window" class="header">
-            <div>
-                <div class="caret caretEnabled" id="consoleCaret"></div>
-                <h1 class="textStart" id="consoleText"></h1>
+            <div class="consoleStartContainer">
+                <img src="assets/terminalHeader.svg" alt="terminal window" class="header">
+                <div>
+                    <div class="caret caretEnabled" id="consoleCaret"></div>
+                    <h1 class="textStart" id="consoleText"></h1>
+                </div>
+            </div>
+            <div class="consoleEndContainer">
+                <div class="topContainer">
+                    <img id="textEndOn" src="assets/textEndOn.svg" alt="" class="top">
+                    <img id="textEndOff" src="assets/textEndOff.svg" alt="" class="top">
+                </div>
+                <div class="bottomContainer">
+                    <div class="background">
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </section>
